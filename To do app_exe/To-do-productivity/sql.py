@@ -9,7 +9,7 @@ conn = pymysql.connect(host='tododbpy.c94g44mqus56.ap-northeast-1.rds.amazonaws.
                     charset='utf8mb4',
                     cursorclass=pymysql.cursors.DictCursor)
 
-
+#connection check
 def check_connect(conn):
     with conn.cursor() as cur:
         try:
@@ -20,10 +20,12 @@ def check_connect(conn):
         except Exception as e:
             raise ValueError(str(e))
 
-## CRUD
+## followed by CRUD
 ### Create, Read, Update, Delete
 
 ## nt == new task
+## ip == inprogress
+## cp == complete
 def create_task(conn, name, time, state, due_date:datetime.datetime, end_time:datetime.datetime, start_time:datetime.datetime, priority, line_id):
     with conn.cursor() as cur:
         try:
