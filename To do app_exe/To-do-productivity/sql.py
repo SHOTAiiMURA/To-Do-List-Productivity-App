@@ -68,9 +68,16 @@ def create_high_task(task_name, duration, line_id):
 
 #use for view task
 def read_task(conn):
+    with conn.cursor() as cur:
+        try:
+            cur.execute("select name from Task")
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
     return
 
-
+def read_taskList(conn):
+    return
 ## update product set price=340 where name='Grape';
 def update_duration(conn):
     return
@@ -115,3 +122,4 @@ if __name__ == "__main__":
     create_empty_task("Laundry", 24,"High","ddddd")
     update_duration(1800)
     check_connect(conn)
+    read_task(conn)
