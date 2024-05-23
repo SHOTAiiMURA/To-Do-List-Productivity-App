@@ -75,14 +75,14 @@ def read_task(conn):
         except Exception as e:
             raise ValueError(str(e))
     return
-##inprogress task
+## view in progress task
 def read_taskListIP(conn):
     read_task("select name from Task where state = 'ip'")
 
-## select upcoming task
+## view select upcoming task
 def read_taskListUpCome(conn):
     read_task("select name from Task where state ='nt' order by priority")
-## completed task
+## view completed task
 def read_taskListCP(conn):
     read_task("select name from Task where state = 'cp'")
 ## update product set price=340 where name='Grape';
