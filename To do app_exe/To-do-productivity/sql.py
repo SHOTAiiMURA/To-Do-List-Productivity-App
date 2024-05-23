@@ -76,10 +76,15 @@ def read_task(conn):
             raise ValueError(str(e))
     return
 ##inprogress task
-## coming up tasks
-##
-def read_taskList(conn):
-    return
+def read_taskListIP(conn):
+    read_task("select name from Task where status == 'ip'")
+
+## select upcoming task
+def read_taskListUpCome(conn):
+    read_task("select name from Task where status =='nt' order by priority ")
+## completed task
+def read_taskListCP(conn):
+    read_task("select name from Task where status == 'cp'")
 ## update product set price=340 where name='Grape';
 def update_duration(conn):
     return
