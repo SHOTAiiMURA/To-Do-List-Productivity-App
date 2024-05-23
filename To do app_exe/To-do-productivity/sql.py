@@ -75,7 +75,9 @@ def read_task(conn):
         except Exception as e:
             raise ValueError(str(e))
     return
-
+##inprogress task
+## coming up tasks
+##
 def read_taskList(conn):
     return
 ## update product set price=340 where name='Grape';
@@ -123,3 +125,4 @@ if __name__ == "__main__":
     update_duration(1800)
     check_connect(conn)
     read_task(conn)
+
