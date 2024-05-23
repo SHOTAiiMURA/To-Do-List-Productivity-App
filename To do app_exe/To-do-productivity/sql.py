@@ -77,14 +77,14 @@ def read_task(conn):
     return
 ##inprogress task
 def read_taskListIP(conn):
-    read_task("select name from Task where status == 'ip'")
+    read_task("select name from Task where state = 'ip'")
 
 ## select upcoming task
 def read_taskListUpCome(conn):
-    read_task("select name from Task where status =='nt' order by priority ")
+    read_task("select name from Task where state ='nt' order by priority")
 ## completed task
 def read_taskListCP(conn):
-    read_task("select name from Task where status == 'cp'")
+    read_task("select name from Task where state = 'cp'")
 ## update product set price=340 where name='Grape';
 def update_duration(conn):
     return
