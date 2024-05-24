@@ -110,8 +110,15 @@ def update_duration(conn,extended_time):
             raise ValueError(str(e))
         return
 ## Year, Month, Date, Hour, Minute
-def update_due_date(conn):
-    return
+def update_due_date(conn,task_id, year, month, day, hours, minutes, seconds):
+    with conn.cursor() as cur:
+        try:
+            cur.execute("UPDATE TaskSET due_date = %s WHERE task_id = %s")
+
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+        return
 
 ## datetime(year, 0, 0)
 def update_year(conn):
