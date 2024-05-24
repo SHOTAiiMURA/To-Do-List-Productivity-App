@@ -85,7 +85,20 @@ def read_taskListUpCome(conn):
 ## view completed task
 def read_taskListCP(conn):
     read_task("select name from Task where state = 'cp'")
+## view high priority task
+def read_highPritask(conn):
+    read_task("select name from Task where priority = 'high' order by end_time desc")
+
+## view medium priority task
+def read_medPritask(conn):
+    read_task("select name from Task where priority = 'medium' order by end_time desc")
+
+## view low priority task
+def read_lowPritask(conn):
+    read_task("select name from Task where priority = 'low' order by end_time desc")
+
 ## update product set price=340 where name='Grape';
+
 def update_duration(conn):
     return
 
