@@ -98,10 +98,17 @@ def read_lowPritask(conn):
     read_task("select name from Task where priority = 'low' order by end_time desc")
 
 ## update product set price=340 where name='Grape';
+## situation where user
+##task_idが特定の値（ここでも%sがプレースホルダー）と一致する行のみを更新対象とします。
+def update_duration(conn,extended_time):
+    with conn.cursor() as cur:
+        try:
+            cur.execute("update Task set extended_time = IFNULL(extended_time, 0) + %s,end_time = DATE_ADD(end_time, INTERVAL %s MINUTE) where task_id = %s")
 
-def update_duration(conn):
-    return
-
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+        return
 ## Year, Month, Date, Hour, Minute
 def update_due_date(conn):
     return
@@ -133,14 +140,22 @@ def read_user(conn):
 
 
 def delete_user(conn):
-    return
+    with conn.cursor() as cur:
+        try:
+            cur.execute("DELETE FROM Task WHERE task_id = %s")
+
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+        return
 
 
 if __name__ == "__main__":
     print("Hello World")
     # create_task(conn, "Taro", 3600, "nb", datetime.datetime.now(), datetime.datetime.now(), datetime.datetime.now(), "medium", "bbbbbb")
     create_empty_task("Laundry", 24,"High","ddddd")
-    update_duration(1800)
+    #update_duration(1800)
     check_connect(conn)
     read_task(conn)
+    update_duration(conn, 20)
 
