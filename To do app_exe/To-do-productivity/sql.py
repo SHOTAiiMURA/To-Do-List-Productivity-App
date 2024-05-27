@@ -147,6 +147,15 @@ def update_priority(conn):
             raise ValueError(str(e))
         return
 
+def update_status(conn):
+    with conn.cursor() as cur:
+        try:
+            cur.execute("UPDATE Task SET state = %s WHERE task_id = %s")
+
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+        return
 
 def delete_task(conn):
     with conn.cursor() as cur:
