@@ -80,7 +80,7 @@ def read_taskListIP(conn):
     read_task("select name from Task where state = 'ip'")
 
 ## view select upcoming task
-def read_taskListUpCome(conn):
+def read_taskListUpComing(conn):
     read_task("select name from Task where state ='nt' order by priority")
 ## view completed task
 def read_taskListCP(conn):
@@ -149,21 +149,54 @@ def update_priority(conn):
 
 
 def delete_task(conn):
-    return
+    with conn.cursor() as cur:
+        try:
+            cur.execute("Delete from Task where name = %s")
+
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+        return
 
 
 def create_user(conn):
-    return
 
 
-def read_user(conn):
-    return
+
+def read_user(conn, user_id):
+    ## check if user_id is in User table
+    user_data_list = []
+    with conn.cursor() as cur:
+        try:
+            cur.execute(f"select user_id from User;")
+
+            user_data_list = list(cur)
+
+        except Exception as e:
+            raise ValueError(str(e))
+
+    user_list = []
+    for user_data in user_data_list:
+        user_list.append(user_data["user_id"])
+
+    if user_id not in user_list:
+
+        with conn.cursor() as cur:
+            try:
+                sql = f"insert into User values('{user_id}','');"
+                print("[Inserting... ->]" + sql)
+                cur.execute(sql)
+
+                conn.commit()
+            except Exception as e:
+                raise ValueError(str(e))
+        return
 
 
 def delete_user(conn):
     with conn.cursor() as cur:
         try:
-            cur.execute("DELETE FROM Task WHERE task_id = %s")
+            cur.execute("DELETE FROM User WHERE task_id = %s")
 
             conn.commit()
         except Exception as e:
