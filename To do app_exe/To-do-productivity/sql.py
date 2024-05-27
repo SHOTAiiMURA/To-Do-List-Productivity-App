@@ -61,7 +61,238 @@ def create_high_task(task_name, duration, line_id):
                 datetime.datetime(1970, 1, 1),
                 "high", line_id)
 
-
+def insert_json_chooseDuration(user_task):
+    return {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": f"{user_task}",
+            "weight": "bold",
+            "color": "#555555",
+            "align": "center",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "height": "1px",
+                "backgroundColor": "#aaaaaa",
+                "offsetTop": "7px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "position": "absolute",
+                "width": "23%",
+                "height": "3px",
+                "backgroundColor": "#00c300",
+                "offsetTop": "6px"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#00e600",
+                    "cornerRadius": "7px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "14px",
+                    "height": "14px",
+                    "backgroundColor": "#00e600",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  }
+                ],
+                "position": "absolute",
+                "width": "100%",
+                "justifyContent": "space-between",
+                "alignItems": "center"
+              }
+            ],
+            "height": "14px",
+            "offsetTop": "7px"
+          },
+          {
+            "type": "separator"
+          }
+        ],
+        "spacing": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Choose Task Type",
+            "size": "xl",
+            "color": "#555555"
+          }
+        ],
+        "spacing": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Duration",
+                "size": "xs",
+                "weight": "bold",
+                "margin": "md",
+                "color": "#FFFFFF",
+                "position": "relative"
+              },
+              {
+                "type": "text",
+                "text": "+",
+                "size": "xxs",
+                "color": "#ffffff",
+                "weight": "bold"
+              },
+              {
+                "type": "text",
+                "text": "Due",
+                "size": "xs",
+                "color": "#ffffff",
+                "weight": "bold"
+              }
+            ],
+            "cornerRadius": "xxl",
+            "width": "85px",
+            "backgroundColor": "#00c300",
+            "alignItems": "center",
+            "position": "relative",
+            "height": "60px",
+            "margin": "none",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": "hello"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Duration",
+                "align": "center",
+                "size": "md",
+                "weight": "bold",
+                "margin": "xxl",
+                "position": "relative",
+                "color": "#FFFFFF"
+              }
+            ],
+            "backgroundColor": "#00c300",
+            "cornerRadius": "xxl",
+            "position": "relative",
+            "width": "85px",
+            "height": "60px",
+            "alignItems": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Start + End",
+                "align": "center",
+                "size": "sm",
+                "weight": "bold",
+                "margin": "xxl",
+                "position": "relative",
+                "color": "#FFFFFF"
+              }
+            ],
+            "backgroundColor": "#00c300",
+            "cornerRadius": "xxl",
+            "paddingStart": "none",
+            "position": "relative",
+            "width": "85px",
+            "height": "60px",
+            "alignItems": "center"
+          }
+        ]
+      }
+    ],
+    "spacing": "xxl"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [],
+    "justifyContent": "center",
+    "alignItems": "center",
+    "paddingTop": "4px"
+  }
+}
 ## 1. task_name
 ## 2. duration
 ## 3. due_date
