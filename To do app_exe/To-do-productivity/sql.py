@@ -231,7 +231,8 @@ def insert_json_chooseDuration(user_task):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": "hello"
+              "data": "Duration + Due",
+              "displayText": "Duration + Due"
             }
           },
           {
@@ -254,7 +255,13 @@ def insert_json_chooseDuration(user_task):
             "position": "relative",
             "width": "85px",
             "height": "60px",
-            "alignItems": "center"
+            "alignItems": "center",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": "Duration",
+              "displayText": "Duration"
+            }
           },
           {
             "type": "box",
@@ -277,7 +284,13 @@ def insert_json_chooseDuration(user_task):
             "position": "relative",
             "width": "85px",
             "height": "60px",
-            "alignItems": "center"
+            "alignItems": "center",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": "Start + End",
+              "displayText": "Start + End"
+            }
           }
         ]
       }
