@@ -78,25 +78,66 @@ def read_task(conn):
 
 ## view in progress task
 def read_taskListIP(conn):
-    read_task("select name from Task where state = 'ip'")
+    with conn.cursor() as cur:
+        try:
+            cur.execute("select name from Task where state = 'ip'")
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+    return
+
 
 ## view select upcoming task
 def read_taskListUpComing(conn):
-    read_task("select name from Task where state ='nt' order by end_time asc")
+    with conn.cursor() as cur:
+        try:
+            cur.execute("select name from Task where state ='nt' order by end_time asc")
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+    return
+
 ## view completed task
 def read_taskListCP(conn):
-    read_task("select name from Task where state = 'cp'")
+    with conn.cursor() as cur:
+        try:
+            cur.execute("select name from Task where state = 'cp'")
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+    return
+
 ## view high priority task
 def read_highPritask(conn):
-    read_task("select name from Task where priority = 'high' order by end_time asc")
+    with conn.cursor() as cur:
+        try:
+            cur.execute("select name from Task where priority = 'high' order by end_time asc")
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+    return
 
 ## view medium priority task
 def read_medPritask(conn):
-    read_task("select name from Task where priority = 'medium' order by end_time asc")
+    with conn.cursor() as cur:
+        try:
+            cur.execute("select name from Task where priority = 'medium' order by end_time asc")
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+    return
+
 
 ## view low priority task
 def read_lowPritask(conn):
-    read_task("select name from Task where priority = 'low' order by end_time asc")
+    with conn.cursor() as cur:
+        try:
+            cur.execute("select name from Task where priority = 'low' order by end_time asc")
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+    return
+
 
 ## update product set price=340 where name='Grape';
 ## situation where user
