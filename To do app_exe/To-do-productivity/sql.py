@@ -27,6 +27,7 @@ def check_connect(conn):
 ## ip == inprogress
 ## cp == complete
 def create_task(conn, name, time, state, due_date:datetime.datetime, end_time:datetime.datetime, start_time:datetime.datetime, priority, line_id):
+    ## might add task_id later to manage tasks by id
     with conn.cursor() as cur:
         try:
             cur.execute("insert into Task (name, duration, state, due_date, end_time, start_time, extended_time, priority, line_id) values ('{}', {}, '{}', cast('{}' as datetime ), cast('{}' as datetime ), cast('{}' as datetime ), 0, '{}', '{}');"
