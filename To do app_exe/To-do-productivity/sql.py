@@ -75,27 +75,28 @@ def read_task(conn):
         except Exception as e:
             raise ValueError(str(e))
     return
+
 ## view in progress task
 def read_taskListIP(conn):
     read_task("select name from Task where state = 'ip'")
 
 ## view select upcoming task
 def read_taskListUpComing(conn):
-    read_task("select name from Task where state ='nt' order by priority")
+    read_task("select name from Task where state ='nt' order by end_time asc")
 ## view completed task
 def read_taskListCP(conn):
     read_task("select name from Task where state = 'cp'")
 ## view high priority task
 def read_highPritask(conn):
-    read_task("select name from Task where priority = 'high' order by task_id asc")
+    read_task("select name from Task where priority = 'high' order by end_time asc")
 
 ## view medium priority task
 def read_medPritask(conn):
-    read_task("select name from Task where priority = 'medium' order by task_id asc")
+    read_task("select name from Task where priority = 'medium' order by end_time asc")
 
 ## view low priority task
 def read_lowPritask(conn):
-    read_task("select name from Task where priority = 'low' order by task_id asc")
+    read_task("select name from Task where priority = 'low' order by end_time asc")
 
 ## update product set price=340 where name='Grape';
 ## situation where user
