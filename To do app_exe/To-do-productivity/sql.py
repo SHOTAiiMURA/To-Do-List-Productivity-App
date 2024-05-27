@@ -140,7 +140,7 @@ def update_month(conn):
 def update_priority(conn):
     with conn.cursor() as cur:
         try:
-            cur.execute("UPDATE Task SET due_date = %s WHERE task_id = %s")
+            cur.execute("SET @priority = %s; UPDATE Task SET priority = @priority WHERE task_id = %s;")
 
             conn.commit()
         except Exception as e:
