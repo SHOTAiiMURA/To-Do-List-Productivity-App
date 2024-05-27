@@ -87,15 +87,15 @@ def read_taskListCP(conn):
     read_task("select name from Task where state = 'cp'")
 ## view high priority task
 def read_highPritask(conn):
-    read_task("select name from Task where priority = 'high' order by end_time desc")
+    read_task("select name from Task where priority = 'high' order by task_id desc")
 
 ## view medium priority task
 def read_medPritask(conn):
-    read_task("select name from Task where priority = 'medium' order by end_time desc")
+    read_task("select name from Task where priority = 'medium' order by task_id desc")
 
 ## view low priority task
 def read_lowPritask(conn):
-    read_task("select name from Task where priority = 'low' order by end_time desc")
+    read_task("select name from Task where priority = 'low' order by task_id desc")
 
 ## update product set price=340 where name='Grape';
 ## situation where user
@@ -159,7 +159,7 @@ def delete_task(conn):
         return
 
 
-def create_user(conn):
+## def create_user(conn):
 
 
 
