@@ -170,9 +170,6 @@ def delete_task(conn):
 
 
 ## def create_user(conn):
-
-
-
 def read_check_user(conn, user_id):
     ## check if user_id is in User table
     user_data_list = []
