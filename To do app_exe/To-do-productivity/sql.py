@@ -196,7 +196,7 @@ def read_user(conn, user_id):
 def delete_user(conn):
     with conn.cursor() as cur:
         try:
-            cur.execute("DELETE FROM User WHERE task_id = %s")
+            cur.execute("DELETE FROM User WHERE user_id = %s")
 
             conn.commit()
         except Exception as e:
