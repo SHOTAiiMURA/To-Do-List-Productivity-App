@@ -113,7 +113,7 @@ def update_duration(conn,extended_time):
 def update_due_date(conn,task_id, year, month, day, hours, minutes, seconds):
     with conn.cursor() as cur:
         try:
-            cur.execute("UPDATE TaskSET due_date = %s WHERE task_id = %s")
+            cur.execute("UPDATE Task SET due_date = %s WHERE task_id = %s")
 
             conn.commit()
         except Exception as e:
@@ -121,17 +121,31 @@ def update_due_date(conn,task_id, year, month, day, hours, minutes, seconds):
         return
 
 ## datetime(year, 0, 0)
-def update_year(conn):
-    return
+## def update_year(conn):
+##    return
 
 ## datetime(5, 0, 0)
 ## 1. select
 ## 2. datetime(year, month, 0)
 def update_month(conn):
-    return
+    with conn.cursor() as cur:
+        try:
+            cur.execute("UPDATE Task SET due_date = DATE_ADD(due_date, INTERVAL %s MONTH),start_time = DATE_ADD(start_time, INTERVAL %s MONTH),end_time = DATE_ADD(end_time, INTERVAL %s MONTH) WHERE task_id = %s")
+
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+        return
 
 def update_priority(conn):
-    return
+    with conn.cursor() as cur:
+        try:
+            cur.execute("UPDATE Task SET due_date = %s WHERE task_id = %s")
+
+            conn.commit()
+        except Exception as e:
+            raise ValueError(str(e))
+        return
 
 
 def delete_task(conn):
