@@ -306,6 +306,442 @@ def insert_json_chooseDuration(user_task):
     "paddingTop": "4px"
   }
 }
+
+def hour_duration_postback(postback_data, task_id):
+    if postback_data[-5:] == ' hour':
+        duration_hour = postback_data.replace(" hour","")
+
+def choose_duration(hour_duration):
+    return {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": f"{hour_duration}"" : Minute",
+            "weight": "bold",
+            "color": "#555555",
+            "size": "lg",
+            "align": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "height": "1px",
+                "backgroundColor": "#aaaaaa",
+                "offsetTop": "7px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "backgroundColor": "#00c300",
+                "height": "3px",
+                "width": "41%",
+                "position": "absolute",
+                "offsetTop": "6px"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "14px",
+                    "height": "14px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "7px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  }
+                ],
+                "position": "absolute",
+                "width": "100%",
+                "justifyContent": "space-between",
+                "alignItems": "center"
+              }
+            ],
+            "height": "14px"
+          }
+        ],
+        "spacing": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Choose Duration [Minute]",
+            "size": "xl",
+            "color": "#555555",
+            "wrap": True
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "0 mins",
+                "color": "#ffffff",
+                "weight": "bold",
+                "size": "lg",
+                "align": "center"
+              }
+            ],
+            "width": "240px",
+            "height": "44px",
+            "cornerRadius": "xxl",
+            "paddingTop": "md",
+            "backgroundColor": "#08C656",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": "0 mins"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "15 mins",
+                "align": "center",
+                "margin": "none",
+                "color": "#ffffff",
+                "size": "lg",
+                "weight": "bold"
+              }
+            ],
+            "backgroundColor": "#08C656",
+            "cornerRadius": "xxl",
+            "paddingTop": "md",
+            "width": "240px",
+            "height": "44px",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": "15 mins"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "25 mins",
+                "color": "#ffffff",
+                "size": "lg",
+                "weight": "bold",
+                "align": "center"
+              }
+            ],
+            "backgroundColor": "#08C656",
+            "paddingTop": "md",
+            "cornerRadius": "xxl",
+            "width": "240px",
+            "height": "44px",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": "25 mins"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "45 mins",
+                "color": "#ffffff",
+                "size": "lg",
+                "weight": "bold",
+                "align": "center"
+              }
+            ],
+            "backgroundColor": "#08C656",
+            "cornerRadius": "xxl",
+            "paddingTop": "md",
+            "width": "240px",
+            "height": "44px",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": "45 mins"
+            }
+          }
+        ],
+        "spacing": "md"
+      }
+    ],
+    "spacing": "xl"
+  }
+}
+
+def choose_priority(user_task,hour_duration,mins_duration):
+  return {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": f"{user_task}" "["f"{hour_duration}"":"f"{mins_duration}""]",
+            "weight": "bold",
+            "color": "#555555",
+            "size": "lg",
+            "align": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "height": "1px",
+                "backgroundColor": "#aaaaaa",
+                "offsetTop": "7px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "backgroundColor": "#00c300",
+                "height": "3px",
+                "width": "60%",
+                "position": "absolute",
+                "offsetTop": "6px"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "14px",
+                    "height": "14px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "7px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  }
+                ],
+                "position": "absolute",
+                "width": "100%",
+                "justifyContent": "space-between",
+                "alignItems": "center"
+              }
+            ],
+            "height": "14px"
+          }
+        ],
+        "spacing": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Choose Priority",
+            "size": "xl",
+            "color": "#555555",
+            "wrap": True
+          }
+        ],
+        "spacing": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "High",
+                "align": "center",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#FF5733",
+            "cornerRadius": "xxl",
+            "action": {
+              "type": "postback",
+              "label": "choose priority",
+              "data": "high",
+              "displayText": "High Priority"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Medium",
+                "align": "center",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#33A9FF",
+            "cornerRadius": "xxl",
+            "action": {
+              "type": "postback",
+              "label": "Choose priority",
+              "data": "medium",
+              "displayText": "Medium Priority"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Low",
+                "align": "center",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#3AFF33",
+            "cornerRadius": "xxl",
+            "action": {
+              "type": "postback",
+              "label": "choose priority",
+              "data": "low",
+              "displayText": "Low Priority"
+            }
+          }
+        ]
+      }
+    ],
+    "spacing": "xl"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [],
+    "justifyContent": "center",
+    "alignItems": "center",
+    "paddingTop": "4px"
+  }
+}
+
 ## 1. task_name
 ## 2. duration
 ## 3. due_date
