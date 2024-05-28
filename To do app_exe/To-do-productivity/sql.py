@@ -34,8 +34,40 @@ def create_task(conn, name, time, state, due_date:datetime.datetime, end_time:da
                         .format(name, time, state, due_date.strftime('%Y-%m-%d %H:%M:%S'), end_time.strftime('%Y-%m-%d %H:%M:%S'), start_time.strftime('%Y-%m-%d %H:%M:%S'), priority, line_id))
 
             conn.commit()
+
         except Exception as e:
             raise ValueError(str(e))
+    return
+def getMaxTaskID(conn):
+  with conn.cursor() as cur:
+    try:
+      cur.execute("select task_id from Task where task_id = max(task_id)")
+
+      max_task_id_list = list(cur)
+      dict_data = max_task_id_list[0]
+      max_task_id = dict_data["task_id"]
+      return max_task_id
+
+      #"task_id":12
+    except Exception as e:
+      raise ValueError(str(e))
+
+
+
+def update_minutes(conn, task_id):
+  with conn.cursor() as cur:
+    try:
+      cur.execute(f"select end_time from Task where task_id = {task_id};")
+
+      print(list(cur))
+      # dict_data = endtime_List[0]
+      # end_timeid = dict_data["task_id"]
+      # return end_timeid
+
+
+    except Exception as e:
+      raise ValueError(str(e))
+
     return
 
 
@@ -940,5 +972,6 @@ if __name__ == "__main__":
     #update_duration(1800)
     check_connect(conn)
     read_task(conn)
-    update_duration(conn, 20)
+    #update_duration(conn, 20)
+    update_minutes(conn, 12)
 
