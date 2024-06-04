@@ -26,7 +26,7 @@ def check_connect(conn):
 ## nt == new task
 ## ip == inprogress
 ## cp == complete
-def create_task(conn, name, time, state, due_date:datetime.datetime, end_time:datetime.datetime, start_time:datetime.datetime, priority, line_id):
+def create_task(conn,name, time, state, due_date:datetime.datetime, end_time:datetime.datetime, start_time:datetime.datetime, priority, line_id):
     ## might add task_id later to manage tasks by id
     with conn.cursor() as cur:
         try:
@@ -38,7 +38,7 @@ def create_task(conn, name, time, state, due_date:datetime.datetime, end_time:da
         except Exception as e:
             raise ValueError(str(e))
     return
-def getMaxTaskID(conn):
+def getMaxTaskID(conn,max_task_id):
   with conn.cursor() as cur:
     try:
       cur.execute("select task_id from Task where task_id = max(task_id)")
@@ -968,10 +968,11 @@ def delete_user(conn):
 if __name__ == "__main__":
     print("Hello World")
     # create_task(conn, "Taro", 3600, "nb", datetime.datetime.now(), datetime.datetime.now(), datetime.datetime.now(), "medium", "bbbbbb")
-    create_empty_task("Laundry", 24,"High","ddddd")
+    create_empty_task(12, 24,"high","ddddd")
     #update_duration(1800)
     check_connect(conn)
     read_task(conn)
     #update_duration(conn, 20)
     update_minutes(conn, 12)
+    getMaxTaskID(conn, 12)
 
