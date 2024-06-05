@@ -481,7 +481,7 @@ def insert_hour_duration(name):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},0hour"
+              "data": f"{name},0 hour"
             }
           },
           {
@@ -506,7 +506,7 @@ def insert_hour_duration(name):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},1hour"
+              "data": f"{name},1 hour"
             }
           },
           {
@@ -530,7 +530,7 @@ def insert_hour_duration(name):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},2hour"
+              "data": f"{name},2 hour"
             }
           },
           {
@@ -554,7 +554,7 @@ def insert_hour_duration(name):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},3hour"
+              "data": f"{name},3 hour"
             }
           }
         ],
@@ -711,7 +711,7 @@ def choose_duration(name, hour_duration):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"0 mins,{name}"
+              "data": f"{name},{hour_duration},0 mins"
             }
           },
           {
@@ -736,7 +736,7 @@ def choose_duration(name, hour_duration):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": "15 mins"
+              "data": f"{name},{hour_duration},15 mins"
             }
           },
           {
@@ -760,7 +760,7 @@ def choose_duration(name, hour_duration):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": "25 mins"
+              "data": f"{name},{hour_duration},25 mins"
             }
           },
           {
@@ -784,7 +784,7 @@ def choose_duration(name, hour_duration):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": "45 mins"
+              "data": f"{name},{hour_duration},45 mins"
             }
           }
         ],
@@ -944,7 +944,7 @@ def choose_priority(user_task,hour_duration,mins_duration):
             "action": {
               "type": "postback",
               "label": "choose priority",
-              "data": "high",
+              "data": f"high",
               "displayText": "High Priority"
             }
           },
