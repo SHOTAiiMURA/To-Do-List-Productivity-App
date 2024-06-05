@@ -570,6 +570,10 @@ def choose_duration(hour_duration):
   }
 }
 
+
+def minutes_duration_postback(postback_data, task_id):
+  if postback_data[-5:] == ' mins':
+    duration_hour = postback_data.replace(" mins", "")
 def choose_priority(user_task,hour_duration,mins_duration):
   return {
   "type": "bubble",
@@ -773,6 +777,11 @@ def choose_priority(user_task,hour_duration,mins_duration):
     "paddingTop": "4px"
   }
 }
+
+def priority_postback(postback_data, task_id):
+  if postback_data == 'high':
+  elif postback_data == 'medium':
+  elif postback_data == 'low':
 
 ## 1. task_name
 ## 2. duration
