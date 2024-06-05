@@ -338,12 +338,237 @@ def insert_json_chooseDuration(user_task):
     "paddingTop": "4px"
   }
 }
-
+def insert_hour_duration(name):
+  return {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Hour : Minutes",
+            "weight": "bold",
+            "color": "#555555",
+            "size": "lg",
+            "align": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "height": "1px",
+                "backgroundColor": "#aaaaaa",
+                "offsetTop": "7px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "backgroundColor": "#00c300",
+                "height": "3px",
+                "width": "41%",
+                "position": "absolute",
+                "offsetTop": "6px"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#00c300",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#00c300",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "14px",
+                    "height": "14px",
+                    "backgroundColor": "#00e600",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "7px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  }
+                ],
+                "position": "absolute",
+                "width": "100%",
+                "justifyContent": "space-between",
+                "alignItems": "center"
+              }
+            ],
+            "height": "14px"
+          }
+        ],
+        "spacing": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Choose Duration [Hour]",
+            "size": "xl",
+            "color": "#555555",
+            "wrap": True
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "0 hour",
+                "color": "#ffffff",
+                "weight": "bold",
+                "size": "lg",
+                "align": "center"
+              }
+            ],
+            "width": "240px",
+            "height": "44px",
+            "cornerRadius": "xxl",
+            "paddingTop": "md",
+            "backgroundColor": "#08C656",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": f"{name},0hour"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "1 hour",
+                "align": "center",
+                "margin": "none",
+                "color": "#ffffff",
+                "size": "lg",
+                "weight": "bold"
+              }
+            ],
+            "backgroundColor": "#08C656",
+            "cornerRadius": "xxl",
+            "paddingTop": "md",
+            "width": "240px",
+            "height": "44px",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": f"{name},1hour"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "2 hour",
+                "color": "#ffffff",
+                "size": "lg",
+                "weight": "bold",
+                "align": "center"
+              }
+            ],
+            "backgroundColor": "#08C656",
+            "paddingTop": "md",
+            "cornerRadius": "xxl",
+            "width": "240px",
+            "height": "44px",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": f"{name},2hour"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "3 hour",
+                "color": "#ffffff",
+                "size": "lg",
+                "weight": "bold",
+                "align": "center"
+              }
+            ],
+            "backgroundColor": "#08C656",
+            "cornerRadius": "xxl",
+            "paddingTop": "md",
+            "width": "240px",
+            "height": "44px",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": f"{name},3hour"
+            }
+          }
+        ],
+        "spacing": "md"
+      }
+    ],
+    "spacing": "xl"
+  }
+}
 def hour_duration_postback(postback_data, task_id):
     if postback_data[-5:] == ' hour':
         duration_hour = postback_data.replace(" hour","")
 
-def choose_duration(hour_duration):
+def choose_duration(name, hour_duration):
     return {
   "type": "bubble",
   "body": {
@@ -486,7 +711,7 @@ def choose_duration(hour_duration):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": "0 mins"
+              "data": f"0 mins,{name}"
             }
           },
           {
