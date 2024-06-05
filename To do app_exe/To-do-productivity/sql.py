@@ -921,10 +921,10 @@ def update_status(conn):
             raise ValueError(str(e))
         return
 
-def delete_task(conn):
+def delete_task(conn,name):
     with conn.cursor() as cur:
         try:
-            cur.execute("Delete from Task where name = %s")
+            cur.execute(f"Delete from Task where name = {name}")
 
             conn.commit()
         except Exception as e:
@@ -963,10 +963,10 @@ def read_check_user(conn, user_id):
         return
 
 
-def delete_user(conn):
+def delete_user(conn,user_id):
     with conn.cursor() as cur:
         try:
-            cur.execute("DELETE FROM User WHERE user_id = %s")
+            cur.execute(f"DELETE FROM User WHERE user_id = {user_id}")
 
             conn.commit()
         except Exception as e:
