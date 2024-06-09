@@ -1197,7 +1197,7 @@ def confirm_task(user_task, hour_duration, mins_duration, priority):
 #   if postback_data == 'high':
 #   elif postback_data == 'medium':
 #   elif postback_data == 'low':
-def task_created(user_task, hour_duration, mins_duration):
+def task_created(user_task, hour_duration, mins_duration, priority):
   return {
   "type": "bubble",
   "body": {
@@ -1343,7 +1343,7 @@ def task_created(user_task, hour_duration, mins_duration):
               "type": "postback",
               "label": "view task",
               "displayText": "View Task",
-              "data": "View Task"
+              "data": f"[View Task],{user_task},{hour_duration},{mins_duration},{priority}"
             }
           },
           {

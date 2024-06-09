@@ -334,10 +334,23 @@ def handle_postback(event):
 
         create_task(conn,name,hour_duraiton,minutes_duraiton,priority,event.source.user_id)
 
-
         line_bot_api.reply_message(
             event.reply_token,
             (TextSendMessage(text='Task confirmed'))
+        )
+
+    elif event.postback.data[:len("[View Task]")] == "[View Task]":
+        dataList = event.postback.data.split(",")
+        name = dataList[0].replace("[View Task]", "")
+        hour_duraiton = dataList[1].replace(" hour", "")
+        minutes_duraiton = dataList[2].replace(" mins", "")
+        priority = dataList[3]
+
+        bubble = task_created(name, hour_duraiton, minutes_duraiton, priority)
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            (TextSendMessage(text='View Task'))
         )
 
 
