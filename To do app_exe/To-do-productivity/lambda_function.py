@@ -316,6 +316,7 @@ def handle_postback(event):
             (TextSendMessage(text='Choose Priority of Task'))
         )
 
+
 @handler.add(FollowEvent)
 def handle_follow(event):
     line_bot_api.reply_message(
