@@ -1380,6 +1380,300 @@ def task_created(user_task, hour_duration, mins_duration, priority):
     "paddingTop": "4px"
   }
 }
+
+def task_view(user_task, hour_duration, mins_duration, priority):
+  return {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": {user_task},
+            "weight": "bold",
+            "color": "#555555",
+            "align": "center",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "ToDo",
+                    "color": "#33ccff",
+                    "align": "center",
+                    "size": "xxs"
+                  }
+                ],
+                "borderColor": "#33ccff",
+                "borderWidth": "semi-bold",
+                "margin": "md"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Priority",
+                    "align": "center",
+                    "color": "#ff9900",
+                    "size": "xxs"
+                  }
+                ],
+                "borderColor": "#ff9900",
+                "borderWidth": "semi-bold",
+                "margin": "md"
+              }
+            ],
+            "cornerRadius": "none",
+            "borderWidth": "none",
+            "alignItems": "flex-start"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": f"{hour_duration} hour {mins_duration} mins Left"
+                  }
+                ],
+                "alignItems": "center"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "height": "3px",
+                "backgroundColor": "#aaaaaa"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [],
+                "width": "10px",
+                "height": "10px",
+                "backgroundColor": "#08C656",
+                "cornerRadius": "5px",
+                "position": "absolute"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [],
+                "width": "10px",
+                "height": "10px",
+                "backgroundColor": "#aaaaaa",
+                "cornerRadius": "5px"
+              }
+            ],
+            "height": "14px",
+            "justifyContent": "space-between",
+            "alignItems": "center",
+            "width": "85%",
+            "offsetStart": "xxl",
+            "offsetEnd": "none",
+            "offsetTop": "none"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "00:00"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": f"0{hour_duration}:{mins_duration}"
+                  }
+                ],
+                "alignItems": "flex-end"
+              }
+            ],
+            "alignItems": "flex-start"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Start",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#00BFFF",
+            "cornerRadius": "xxl",
+            "alignItems": "center",
+            "action": {
+              "type": "postback",
+              "label": "action",
+              "data": f"[ExeInsert],{user_task},{hour_duration},{mins_duration},{priority}"
+            }
+          }
+        ],
+        "spacing": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Extend",
+                "size": "sm",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#556B2F",
+            "cornerRadius": "md",
+            "alignItems": "center",
+            "width": "30%"
+          }
+        ],
+        "spacing": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "10 mins",
+                "color": "#ffffff",
+                "align": "center"
+              }
+            ],
+            "backgroundColor": "#D2691E",
+            "cornerRadius": "xxl",
+            "alignItems": "center"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "30 mins",
+                "color": "#ffffff",
+                "align": "center"
+              }
+            ],
+            "backgroundColor": "#D2691E",
+            "cornerRadius": "xxl",
+            "alignItems": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "1 hour",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#D2691E",
+            "cornerRadius": "xxl",
+            "alignItems": "center"
+          }
+        ],
+        "alignItems": "center",
+        "justifyContent": "center"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "2 hour",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#D2691E",
+            "cornerRadius": "xxl",
+            "alignItems": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Tomorrow",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#D2691E",
+            "cornerRadius": "xxl",
+            "alignItems": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Next Week",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#D2691E",
+            "cornerRadius": "xxl",
+            "alignItems": "center"
+          }
+        ]
+      }
+    ],
+    "spacing": "xl"
+  }
+}
 ## 1. task_name
 ## 2. duration
 ## 3. due_date

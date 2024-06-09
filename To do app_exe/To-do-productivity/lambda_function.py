@@ -345,13 +345,27 @@ def handle_postback(event):
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
 
+        bubble =
+
+        message = FlexSendMessage(alt_text="View Task", contents=bubble)
+        line_bot_api.reply_message(
+            event.reply_token,
+            message
+        )
+
+    elif event.postback.data[:len("[Confirmed]")] == "[Confirmed]":
+        dataList = event.postback.data.split(",")
+        name = dataList[0].replace("[Confirmed]", "")
+        hour_duraiton = dataList[1].replace(" hour", "")
+        minutes_duraiton = dataList[2].replace(" mins", "")
+        priority = dataList[3]
+
         create_task(conn, name, hour_duraiton, minutes_duraiton, priority, event.source.user_id)
 
         line_bot_api.reply_message(
             event.reply_token,
-            (TextSendMessage(text='View Task'))
+            (TextSendMessage(text='Start Task'))
         )
-
 
 @handler.add(FollowEvent)
 def handle_follow(event):
