@@ -280,7 +280,7 @@ def handle_postback(event):
             event.reply_token,
             (TextSendMessage(text='Start + End'))
         )
-    elif event.postback.data[-len(" hour")] == " hour":
+    elif event.postback.data[-len(" hour"):] == " hour":
         dataList = event.postback.data.split(",")
         name = dataList[0]
         hour_duraiton = dataList[1].replace(" hour", "")
@@ -293,7 +293,7 @@ def handle_postback(event):
                 event.reply_token,
                 message
             )
-    elif event.postback.data[-len(" mins")] == " mins":
+    elif event.postback.data[-len(" mins"):] == " mins":
         dataList = event.postback.data.split(",")
         name = dataList[0]
         hour_duraiton = dataList[1].replace(" hour", "")
