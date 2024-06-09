@@ -325,7 +325,7 @@ def handle_postback(event):
         )
     elif event.postback.data[:len("[View Task]")] == "[View Task]":
         dataList = event.postback.data.split(",")
-        name = dataList[0].replace("[confirmed]","")
+        name = dataList[0].replace("[View Task]","")
         hour_duraiton = dataList[1].replace(" hour", "")
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
@@ -340,7 +340,7 @@ def handle_postback(event):
 
     elif event.postback.data[:len("[Confirmed]")] == "[Confirmed]":
         dataList = event.postback.data.split(",")
-        name = dataList[0].replace("[View Task]", "")
+        name = dataList[0].replace("[Confirmed]", "")
         hour_duraiton = dataList[1].replace(" hour", "")
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
