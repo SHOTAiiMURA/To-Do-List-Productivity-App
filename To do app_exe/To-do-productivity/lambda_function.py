@@ -323,28 +323,29 @@ def handle_postback(event):
             event.reply_token,
             message
         )
-    elif event.postback.data[:len("[confirmed]")] == "[confirmed]":
+    elif event.postback.data[:len("[View Task]")] == "[View Task]":
         dataList = event.postback.data.split(",")
         name = dataList[0].replace("[confirmed]","")
         hour_duraiton = dataList[1].replace(" hour", "")
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
 
-        create_task(conn,name,hour_duraiton,minutes_duraiton,priority,event.source.user_id)
+        bubble = task_created(name, hour_duraiton, minutes_duraiton, priority)
 
+        message = FlexSendMessage(alt_text="View Task", contents=bubble)
         line_bot_api.reply_message(
             event.reply_token,
-            (TextSendMessage(text='Task confirmed'))
+            message
         )
 
-    elif event.postback.data[:len("[View Task]")] == "[View Task]":
+    elif event.postback.data[:len("[Confirmed]")] == "[Confirmed]":
         dataList = event.postback.data.split(",")
         name = dataList[0].replace("[View Task]", "")
         hour_duraiton = dataList[1].replace(" hour", "")
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
 
-        bubble = task_created(name, hour_duraiton, minutes_duraiton, priority)
+        create_task(conn, name, hour_duraiton, minutes_duraiton, priority, event.source.user_id)
 
         line_bot_api.reply_message(
             event.reply_token,

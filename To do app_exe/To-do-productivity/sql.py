@@ -1156,7 +1156,7 @@ def confirm_task(user_task, hour_duration, mins_duration, priority):
               "type": "postback",
               "label": "confirm task",
               "displayText": "Confirmed Task",
-              "data": f"[confirmed]{user_task},{hour_duration},{mins_duration},{priority}"
+              "data": f"[View Task]{user_task},{hour_duration},{mins_duration},{priority}"
             }
           },
           {
@@ -1343,7 +1343,7 @@ def task_created(user_task, hour_duration, mins_duration, priority):
               "type": "postback",
               "label": "view task",
               "displayText": "View Task",
-              "data": f"[View Task],{user_task},{hour_duration},{mins_duration},{priority}"
+              "data": f"[Confirmed],{user_task},{hour_duration},{mins_duration},{priority}"
             }
           },
           {
