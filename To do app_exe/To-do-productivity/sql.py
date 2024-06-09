@@ -584,7 +584,7 @@ def choose_duration(name, hour_duration):
         "contents": [
           {
             "type": "text",
-            "text": f"{hour_duration}"" : Minute",
+            "text": f"{hour_duration}h"" : Minute",
             "weight": "bold",
             "color": "#555555",
             "size": "lg",
@@ -819,7 +819,7 @@ def choose_priority(user_task,hour_duration,mins_duration):
         "contents": [
           {
             "type": "text",
-            "text": f"{user_task}" "["f"{hour_duration}"":"f"{mins_duration}""]",
+            "text": f"{user_task}" "["f"{hour_duration}h"":"f"{mins_duration}m""]",
             "weight": "bold",
             "color": "#555555",
             "size": "lg",
@@ -1023,7 +1023,7 @@ def confirm_task(user_task, hour_duration, mins_duration, priority):
         "contents": [
           {
             "type": "text",
-            "text": "Sample [00:00]",
+            "text": f"{user_task} [{hour_duration}h:{mins_duration}m]",
             "weight": "bold",
             "color": "#555555",
             "size": "lg",
