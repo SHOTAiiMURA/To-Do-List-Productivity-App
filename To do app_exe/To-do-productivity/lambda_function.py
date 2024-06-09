@@ -248,7 +248,7 @@ def handle_message(event):
             event.reply_token,
             message
         )
-    elif send_message[:5] == "Task " and isinstance(event.source, SourceUser):
+    elif send_message[:len("Task")] == "Task " and isinstance(event.source, SourceUser):
         #ex) send_message = "Task learn SQL"
         user_task = send_message.replace("Task ","")
         #user_task = "learn SQL"
@@ -325,7 +325,7 @@ def handle_postback(event):
         )
     elif event.postback.data[:len("[confirmed]")] == "[confirmed]":
         dataList = event.postback.data.split(",")
-        name = dataList[0].replace("[confirmed]","")
+        name = dataList[0].replace("[confirmed][INSERT]","")
         hour_duraiton = dataList[1].replace(" hour", "")
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
@@ -341,4 +341,4 @@ def handle_follow(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(
-            text='登録して頂きありがとうごいます！Cafe BORCELLEのLINE公式アカウントです。\n\n下記Menuから今日のドリンクメニューやクーポン、お問い合わせ、ホームページのリンクがご確認頂けます。\n\n自動会話botと連携しており、チャットで話しかけると返答が返ってきます。\n\nぜひご活用頂ければ幸いです。'))
+            text='登録して頂きありがとうごいます！Boost Your To-DayのLINE公式アカウントです。\n\n下記Menuから今日のドリンクメニューやクーポン、お問い合わせ、ホームページのリンクがご確認頂けます。\n\n自動会話botと連携しており、チャットで話しかけると返答が返ってきます。\n\nぜひご活用頂ければ幸いです。'))

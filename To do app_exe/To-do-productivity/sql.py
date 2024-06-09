@@ -30,7 +30,7 @@ def create_task(conn,task_name, hour, minutes, priority, line_id):
     ## might add task_id later to manage tasks by id
     with conn.cursor() as cur:
         try:
-            cur.execute(f"insert into Task (task_name, hour, minutes, priority, start_time, line_id) values('{task_name}', {hour}, {minutes}, '{priority}', curdate(), '{line_id}')")
+            cur.execute(f"insert into Task (task_name, hour, minutes, priority, start_time, line_id) values('{task_name}', {hour}, {minutes}, '{priority}', datetime(), '{line_id}')")
 
             conn.commit()
 
