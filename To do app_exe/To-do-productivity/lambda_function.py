@@ -311,7 +311,7 @@ def handle_postback(event):
 
     elif event.postback.data[:len("[INSERT]")] == "[INSERT]":
         dataList = event.postback.data.split(",")
-        name = dataList[0]
+        name = dataList[0].replace("[INSERT]","")
         hour_duraiton = dataList[1].replace(" hour", "")
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
@@ -325,7 +325,7 @@ def handle_postback(event):
         )
     elif event.postback.data[:len("[confirmed]")] == "[confirmed]":
         dataList = event.postback.data.split(",")
-        name = dataList[0]
+        name = dataList[0].replace("[confirmed]","")
         hour_duraiton = dataList[1].replace(" hour", "")
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
