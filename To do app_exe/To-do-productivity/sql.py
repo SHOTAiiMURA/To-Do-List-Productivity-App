@@ -263,7 +263,7 @@ def insert_json_chooseDuration(user_task):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": "Duration + Due",
+              "data": f"{user_task}Duration + Due",
               "displayText": "Duration + Due"
             }
           },
@@ -291,7 +291,7 @@ def insert_json_chooseDuration(user_task):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": "Duration",
+              "data": f"{user_task},Duration",
               "displayText": "Duration"
             }
           },
@@ -320,7 +320,7 @@ def insert_json_chooseDuration(user_task):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": "Start + End",
+              "data": f"{user_task},Start + End",
               "displayText": "Start + End"
             }
           }
@@ -1003,10 +1003,10 @@ def choose_priority(user_task,hour_duration,mins_duration):
   }
 }
 
-def priority_postback(postback_data, task_id):
-  if postback_data == 'high':
-  elif postback_data == 'medium':
-  elif postback_data == 'low':
+# def priority_postback(postback_data, task_id):
+#   if postback_data == 'high':
+#   elif postback_data == 'medium':
+#   elif postback_data == 'low':
 
 ## 1. task_name
 ## 2. duration
