@@ -481,7 +481,8 @@ def insert_hour_duration(name):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},0 hour"
+              "data": f"{name},0 hour",
+              "displayText": "0 hour"
             }
           },
           {
@@ -506,7 +507,8 @@ def insert_hour_duration(name):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},1 hour"
+              "data": f"{name},1 hour",
+              "displayText": "1 hour"
             }
           },
           {
@@ -530,7 +532,8 @@ def insert_hour_duration(name):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},2 hour"
+              "data": f"{name},2 hour",
+              "displayText": "2 hour"
             }
           },
           {
@@ -554,7 +557,8 @@ def insert_hour_duration(name):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},3 hour"
+              "data": f"{name},3 hour",
+              "displayText": "3 hour"
             }
           }
         ],
@@ -711,7 +715,8 @@ def choose_duration(name, hour_duration):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},{hour_duration},0 mins"
+              "data": f"{name},{hour_duration},0 mins",
+              "displayText": "0 minutes"
             }
           },
           {
@@ -736,7 +741,8 @@ def choose_duration(name, hour_duration):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},{hour_duration},15 mins"
+              "data": f"{name},{hour_duration},15 mins",
+              "displayText": "15 minutes"
             }
           },
           {
@@ -760,7 +766,8 @@ def choose_duration(name, hour_duration):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},{hour_duration},25 mins"
+              "data": f"{name},{hour_duration},25 mins",
+              "displayText": "25 minutes"
             }
           },
           {
@@ -784,7 +791,8 @@ def choose_duration(name, hour_duration):
             "action": {
               "type": "postback",
               "label": "action",
-              "data": f"{name},{hour_duration},45 mins"
+              "data": f"{name},{hour_duration},45 mins",
+              "displayText": "45 minutes"
             }
           }
         ],
