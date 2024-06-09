@@ -1394,7 +1394,7 @@ def start_extend_task(user_task, hour_duration, mins_duration, priority):
         "contents": [
           {
             "type": "text",
-            "text": {user_task},
+            "text": f"{user_task}",
             "weight": "bold",
             "color": "#555555",
             "align": "center",
