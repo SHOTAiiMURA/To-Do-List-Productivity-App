@@ -27,7 +27,7 @@ from linebot.models.actions import PostbackAction
 
 from linebot.exceptions import (LineBotApiError, InvalidSignatureError)
 from sql import insert_json_chooseDuration, choose_duration, choose_priority, insert_hour_duration, confirm_task, \
-    create_task, task_created
+    create_task, task_created, start_extend_task
 import pymysql.cursors
 
 conn = pymysql.connect(host='tododbpy.c94g44mqus56.ap-northeast-1.rds.amazonaws.com',
@@ -345,7 +345,7 @@ def handle_postback(event):
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
 
-        bubble =
+        bubble = start_extend_task(name,hour_duraiton,minutes_duraiton,priority)
 
         message = FlexSendMessage(alt_text="View Task", contents=bubble)
         line_bot_api.reply_message(
@@ -353,9 +353,9 @@ def handle_postback(event):
             message
         )
 
-    elif event.postback.data[:len("[Confirmed]")] == "[Confirmed]":
+    elif event.postback.data[:len("[ExeInsert]")] == "[ExeInsert]":
         dataList = event.postback.data.split(",")
-        name = dataList[0].replace("[Confirmed]", "")
+        name = dataList[0].replace("[ExeInsert]", "")
         hour_duraiton = dataList[1].replace(" hour", "")
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]

@@ -1381,7 +1381,7 @@ def task_created(user_task, hour_duration, mins_duration, priority):
   }
 }
 
-def task_view(user_task, hour_duration, mins_duration, priority):
+def start_extend_task(user_task, hour_duration, mins_duration, priority):
   return {
   "type": "bubble",
   "body": {
