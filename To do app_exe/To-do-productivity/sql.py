@@ -952,7 +952,7 @@ def choose_priority(user_task,hour_duration,mins_duration):
             "action": {
               "type": "postback",
               "label": "choose priority",
-              "data": f"high",
+              "data": f"[INSERT]{user_task},{hour_duration},{mins_duration},high",
               "displayText": "High Priority"
             }
           },
@@ -972,7 +972,7 @@ def choose_priority(user_task,hour_duration,mins_duration):
             "action": {
               "type": "postback",
               "label": "Choose priority",
-              "data": "medium",
+              "data": f"[INSERT]{user_task},{hour_duration},{mins_duration},medium",
               "displayText": "Medium Priority"
             }
           },
@@ -992,7 +992,7 @@ def choose_priority(user_task,hour_duration,mins_duration):
             "action": {
               "type": "postback",
               "label": "choose priority",
-              "data": "low",
+              "data": f"[INSERT]{user_task},{hour_duration},{mins_duration},low",
               "displayText": "Low Priority"
             }
           }
@@ -1011,6 +1011,189 @@ def choose_priority(user_task,hour_duration,mins_duration):
   }
 }
 
+def confirm_task(user_task, hour_duration, mins_duration, priority):
+  return {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Sample [00:00]",
+            "weight": "bold",
+            "color": "#555555",
+            "size": "lg",
+            "align": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "height": "1px",
+                "backgroundColor": "#aaaaaa",
+                "offsetTop": "7px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "backgroundColor": "#00c300",
+                "height": "3px",
+                "width": "80%",
+                "position": "absolute",
+                "offsetTop": "6px"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "14px",
+                    "height": "14px",
+                    "backgroundColor": "#08C656",
+                    "cornerRadius": "7px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "10px",
+                    "height": "10px",
+                    "backgroundColor": "#aaaaaa",
+                    "cornerRadius": "5px"
+                  }
+                ],
+                "position": "absolute",
+                "width": "100%",
+                "justifyContent": "space-between",
+                "alignItems": "center"
+              }
+            ],
+            "height": "14px"
+          }
+        ],
+        "spacing": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Confirm New Task",
+            "size": "xl",
+            "color": "#555555",
+            "wrap": True
+          }
+        ],
+        "spacing": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Confirm",
+                "align": "center",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#08C656",
+            "cornerRadius": "xxl",
+            "action": {
+              "type": "postback",
+              "label": "confirm task",
+              "displayText": "Confrim",
+              "data": f"[confirmed]{user_task},{hour_duration},{mins_duration},{priority}"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Cancel",
+                "align": "center",
+                "color": "#ffffff"
+              }
+            ],
+            "backgroundColor": "#aaaaaa",
+            "cornerRadius": "xxl",
+            "action": {
+              "type": "postback",
+              "label": "cancel task",
+              "data": "cancel=user=task",
+              "displayText": "Cancel"
+            }
+          }
+        ]
+      }
+    ],
+    "spacing": "xl"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [],
+    "justifyContent": "center",
+    "alignItems": "center",
+    "paddingTop": "4px"
+  }
+}
 # def priority_postback(postback_data, task_id):
 #   if postback_data == 'high':
 #   elif postback_data == 'medium':
