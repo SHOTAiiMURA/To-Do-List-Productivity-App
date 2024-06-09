@@ -1155,7 +1155,7 @@ def confirm_task(user_task, hour_duration, mins_duration, priority):
             "action": {
               "type": "postback",
               "label": "confirm task",
-              "displayText": "Confrim",
+              "displayText": "Confirmed Task",
               "data": f"[confirmed]{user_task},{hour_duration},{mins_duration},{priority}"
             }
           },
