@@ -248,7 +248,7 @@ def handle_message(event):
             event.reply_token,
             message
         )
-    elif send_message[:len("Task")] == "Task " and isinstance(event.source, SourceUser):
+    elif send_message[:len("Task ")] == "Task " and isinstance(event.source, SourceUser):
         #ex) send_message = "Task learn SQL"
         user_task = send_message.replace("Task ","")
         #user_task = "learn SQL"
