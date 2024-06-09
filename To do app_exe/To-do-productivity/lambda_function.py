@@ -26,7 +26,8 @@ from linebot.models import (
 from linebot.models.actions import PostbackAction
 
 from linebot.exceptions import (LineBotApiError, InvalidSignatureError)
-from sql import insert_json_chooseDuration, choose_duration, choose_priority, insert_hour_duration, confirm_task
+from sql import insert_json_chooseDuration, choose_duration, choose_priority, insert_hour_duration, confirm_task, \
+    create_task
 import pymysql.cursors
 
 conn = pymysql.connect(host='tododbpy.c94g44mqus56.ap-northeast-1.rds.amazonaws.com',
@@ -322,7 +323,19 @@ def handle_postback(event):
             event.reply_token,
             message
         )
+    elif event.postback.data[:len("[confirmed]")] == "[confirmed]":
+        dataList = event.postback.data.split(",")
+        name = dataList[0]
+        hour_duraiton = dataList[1].replace(" hour", "")
+        minutes_duraiton = dataList[2].replace(" mins", "")
+        priority = dataList[3]
 
+        create_task(conn,name,hour_duraiton,minutes_duraiton,priority,event.source.user_id)
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            (TextSendMessage(text='Task confirmed'))
+        )
 @handler.add(FollowEvent)
 def handle_follow(event):
     line_bot_api.reply_message(

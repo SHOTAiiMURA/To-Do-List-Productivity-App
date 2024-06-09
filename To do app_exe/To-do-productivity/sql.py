@@ -26,12 +26,11 @@ def check_connect(conn):
 ## nt == new task
 ## ip == inprogress
 ## cp == complete
-def create_task(conn,name, time, state, due_date:datetime.datetime, end_time:datetime.datetime, start_time:datetime.datetime, priority, line_id):
+def create_task(conn,task_name, hour, minutes, priority, line_id):
     ## might add task_id later to manage tasks by id
     with conn.cursor() as cur:
         try:
-            cur.execute("insert into Task (name, duration, state, due_date, end_time, start_time, extended_time, priority, line_id) values ('{}', {}, '{}', cast('{}' as datetime ), cast('{}' as datetime ), cast('{}' as datetime ), 0, '{}', '{}');"
-                        .format(name, time, state, due_date.strftime('%Y-%m-%d %H:%M:%S'), end_time.strftime('%Y-%m-%d %H:%M:%S'), start_time.strftime('%Y-%m-%d %H:%M:%S'), priority, line_id))
+            cur.execute(f"insert into Task (task_name, hour, minutes, priority, start_time, line_id) values('{task_name}', {hour}, {minutes}, '{priority}', curdate(), '{line_id}')")
 
             conn.commit()
 
@@ -1393,11 +1392,6 @@ def delete_user(conn,user_id):
 if __name__ == "__main__":
     print("Hello World")
     # create_task(conn, "Taro", 3600, "nb", datetime.datetime.now(), datetime.datetime.now(), datetime.datetime.now(), "medium", "bbbbbb")
-    create_empty_task(12, 24,"high","ddddd")
-    #update_duration(1800)
-    check_connect(conn)
-    read_task(conn)
-    #update_duration(conn, 20)
-    update_minutes(conn, 12)
-    getMaxTaskID(conn, 12)
+    create_task(conn,"sql",2,34,"high","aihiuahiuh")
+
 
