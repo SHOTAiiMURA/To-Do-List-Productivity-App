@@ -330,13 +330,16 @@ def handle_postback(event):
         minutes_duraiton = dataList[2].replace(" mins", "")
         priority = dataList[3]
 
+        bubble = task_created(name, hour_duraiton, minutes_duraiton, priority)
+
         create_task(conn,name,hour_duraiton,minutes_duraiton,priority,event.source.user_id)
-        if event.postback.data == "Confirmed Task":
-            bubble = task_created(name, hour_duraiton, minutes_duraiton, priority)
+
+
         line_bot_api.reply_message(
             event.reply_token,
             (TextSendMessage(text='Task confirmed'))
         )
+
 
 @handler.add(FollowEvent)
 def handle_follow(event):
