@@ -13,7 +13,9 @@ This apps is helping to boost your productivity. Also, the project of purpose is
   LINE API
   LINE Develper
   LINE Flex Simulator
-## Configuration Chart
+## System Architecture
+<img width="739" alt="Screenshot 2024-07-01 at 18 56 10" src="https://github.com/SHOTAiiMURA/To-Do-List-Productivity-App/assets/91776514/50e69cd8-0cc2-49f6-9529-43cee3ec3037">
+
 ## How to use app
 ### How to install
   Install LINE application.
