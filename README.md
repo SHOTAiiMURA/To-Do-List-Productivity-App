@@ -40,5 +40,3 @@ In this case, we created a rich menu and also built the app so that users can us
 ## Future Improvement
 Next feature to be added: We would like to add a feature that will tally the number of tasks, and time, accomplished this week, and return a message to the user. Visualizing the results will help users stay motivated.
 I would also like to add a feature that allows users to view a list of tasks that are not performed during the day in a list. The reason is that I often do this and having that list in front of me prevents the temptation to go off and concentrate on executing the task.
-
-Translated with DeepL.com (free version)
