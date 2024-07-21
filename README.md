@@ -17,6 +17,7 @@ This apps is helping to boost your productivity. Also, the project of purpose is
   LINE Flex Simulator
 ## System Architecture
 <img width="722" alt="Screenshot 2024-07-01 at 18 57 32" src="https://github.com/SHOTAiiMURA/To-Do-List-Productivity-App/assets/91776514/cac74870-97a0-4b2c-8baa-6bb2c6734bd4">
+<img width="951" alt="Screenshot 2024-07-21 at 17 00 02" src="https://github.com/user-attachments/assets/132f9129-de10-40d1-885f-8fd0434c4f5d">
 
 ## How to use app
 ### How to install
